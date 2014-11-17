@@ -3,6 +3,13 @@ require 'sinatra/reloader' if development?
 require 'json'
 require 'httparty'
 
+client = Yelp::Client.new({ consumer_key: irKpNTb8gFe5J0Fg5gRzgQ,
+                            consumer_secret: 33uJlojTZH6eiUGg9i-Shuznn94 ,
+                            token: C3Ab47vzh_0Ru6msB2FEHaTcPje7OMrx,
+                            token_secret: GLwua9k5qAIQWuBOB2MimuswPlg
+                         })
+results = client.search(‘Cincinnati’, { term: ‘restaurants’ })
+
 get '/' do
   erb :home
 end
